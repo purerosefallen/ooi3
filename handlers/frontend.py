@@ -99,7 +99,7 @@ class FrontEndHandler:
         starttime = session.get('api_starttime', None)
         world_ip = session.get('world_ip', None)
         if token and starttime and world_ip:
-            context = {'scheme': request.scheme,
+            context = {'scheme': 'https',
                        'host': request.host,
                        'token': token,
                        'starttime': starttime}
@@ -139,7 +139,7 @@ class FrontEndHandler:
         starttime = session.get('api_starttime', None)
         world_ip = session.get('world_ip', None)
         if token and starttime and world_ip:
-            context = {'scheme': request.scheme,
+            context = {'scheme': 'https',
                        'host': request.host,
                        'token': token,
                        'starttime': starttime}
@@ -161,7 +161,7 @@ class FrontEndHandler:
         starttime = session.get('api_starttime', None)
         world_ip = session.get('world_ip', None)
         if token and starttime and world_ip:
-            context = {'scheme': request.scheme,
+            context = {'scheme': 'https',
                        'host': request.host,
                        'token': token,
                        'starttime': starttime}
