@@ -8,4 +8,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 ENV OOI_SECRET_KEY aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 ENV OOI_SCHEME http
 
-CMD [ "python", "./ooi.py" ]
+EXPOSE 9999
+
+CMD [ "python", "./ooi.py", "--host", "0.0.0.0", "--port", "9999" ]
