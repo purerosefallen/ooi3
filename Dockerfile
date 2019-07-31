@@ -1,4 +1,4 @@
-FROM 3.7.4-slim-stretch
+FROM python:3.7.4-slim-stretch
 
 RUN apt update && env DEBIAN_FRONTEND=noninteractive apt install -y python3-dev libffi-dev libssl1.0-dev
 WORKDIR /usr/src/app
