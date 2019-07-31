@@ -6,6 +6,7 @@ import asyncio
 import aiohttp.web
 import aiohttp_jinja2
 from aiohttp_session import get_session
+from base import config
 
 from auth.kancolle import KancolleAuth, OOIAuthException
 
@@ -99,7 +100,7 @@ class FrontEndHandler:
         starttime = session.get('api_starttime', None)
         world_ip = session.get('world_ip', None)
         if token and starttime and world_ip:
-            context = {'scheme': 'https',
+            context = {'scheme': config.scheme,
                        'host': request.host,
                        'token': token,
                        'starttime': starttime}
@@ -139,7 +140,7 @@ class FrontEndHandler:
         starttime = session.get('api_starttime', None)
         world_ip = session.get('world_ip', None)
         if token and starttime and world_ip:
-            context = {'scheme': 'https',
+            context = {'scheme': config.scheme,
                        'host': request.host,
                        'token': token,
                        'starttime': starttime}
@@ -161,7 +162,7 @@ class FrontEndHandler:
         starttime = session.get('api_starttime', None)
         world_ip = session.get('world_ip', None)
         if token and starttime and world_ip:
-            context = {'scheme': 'https',
+            context = {'scheme': config.scheme,
                        'host': request.host,
                        'token': token,
                        'starttime': starttime}
