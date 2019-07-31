@@ -15,4 +15,4 @@ ENV OOI_SCHEME http
 
 EXPOSE 80
 
-CMD [ "bash", "-c", "python ./ooi.py --host 0.0.0.0 --port 9999 & nginx -g 'daemon off;" ]
+CMD [ "bash", "-c", "python ./ooi.py --host 0.0.0.0 --port 9999 & nginx -g 'daemon off;'" ]
