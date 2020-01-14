@@ -11,6 +11,15 @@
   <link href="/static/css/ooi.css" rel="stylesheet">
   <script src="/static/js/jquery-2.1.4.min.js"></script>
   <script src="/static/js/uikit.min.js"></script>
+  <script>
+    // hack了postMessage方法，解决跨域问题
+    // MDN: https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage
+    var _postMessage = window.postMessage;
+
+    window.postMessage = function (message, origin, transfer) {
+      _postMessage(message, window.origin, transfer);
+    }
+  </script>
 </head>
 <body>
 <div id="ooi-page" class="uk-container uk-container-center">
