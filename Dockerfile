@@ -2,7 +2,7 @@ FROM python:3.6.9-slim-buster
 
 RUN apt update && \
     env DEBIAN_FRONTEND=noninteractive apt install -y libffi-dev libssl-dev build-essential nginx && \
-    rm -rf /etc/nginx/sites-enabled/*
+    rm -rf /etc/nginx/sites-enabled/* /var/lib/apt/lists/*
 
 WORKDIR /usr/src/app
 COPY . .
