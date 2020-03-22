@@ -44,7 +44,7 @@ class APIHandler:
             if image_name in self.worlds:
                 body = self.worlds[image_name]
             else:
-                url = 'http://203.104.209.102/kcs/resources/image/world/' + image_name + '.png'
+                url = 'http://203.104.209.102/kcs/resources/world/' + image_name + '.png'
                 coro = aiohttp.get(url, connector=self.connector)
                 try:
                     response = yield from asyncio.wait_for(coro, timeout=5)
