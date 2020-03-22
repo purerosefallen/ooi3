@@ -1,4 +1,4 @@
-FROM 3-slim-buster
+FROM python:3-slim-buster
 
 RUN apt update && \
     env DEBIAN_FRONTEND=noninteractive apt install -y libffi-dev libssl1.0-dev build-essential nginx && \
