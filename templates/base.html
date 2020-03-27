@@ -34,11 +34,13 @@
   <div id="ooi-footer" class="uk-text-center">
     <hr>
     <address><a href="https://nanahira.momobako.com" target="_blank">Nanahira</a> &copy; 2017-2020</address>
+{% if beian is defined %}
 {% if beian.number %}
     <address><a href="http://beian.miit.gov.cn/" rel="external nofollow" target="_blank">{{beian}}</a></address>
 {% endif %}
 {% if beian.gongan and beian.province %}
     <address><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode={{beian.gongan}}" rel="external nofollow" target="_blank">{{beian.province}}公网安备{{beian.gongan}}号</a></address>
+{% endif %}
 {% endif %}
   </div>
 </div>
