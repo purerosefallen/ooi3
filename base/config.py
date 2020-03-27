@@ -9,6 +9,13 @@ secret_key = os.environ.get('OOI_SECRET_KEY', 'You Must Set A Secret Key!').enco
 #HTTP or HTTPS
 scheme = os.environ.get('OOI_SCHEME', 'http')
 
+# 备案号
+beian = {
+	'number': os.environ.get('OOI_BEIAN', None),
+	'province': os.environ.get('OOI_GONGAN_BEIAN_PROVINCE', None)
+	'gongan': os.environ.get('OOI_GONGAN_BEIAN', None)
+}
+
 # 项目目录
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 template_dir = os.path.join(base_dir, 'templates')

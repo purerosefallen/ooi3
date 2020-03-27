@@ -71,7 +71,7 @@ class FrontEndHandler:
                         return aiohttp.web.HTTPFound('/kancolle')
 
                 except OOIAuthException as e:
-                    context = {'errmsg': e.message, 'mode': mode}
+                    context = {'errmsg': e.message, 'mode': mode, 'beian': config.beian}
                     return aiohttp_jinja2.render_template('form.html', request, context)
             elif mode == 4:
                 try:
@@ -79,12 +79,12 @@ class FrontEndHandler:
                     session['osapi_url'] = osapi_url
                     return aiohttp.web.HTTPFound('/connector')
                 except OOIAuthException as e:
-                    context = {'errmsg': e.message, 'mode': mode}
+                    context = {'errmsg': e.message, 'mode': mode, 'beian': config.beian}
                     return aiohttp_jinja2.render_template('form.html', request, context)
             else:
                 raise aiohttp.web.HTTPBadRequest()
         else:
-            context = {'errmsg': '请输入完整的登录ID和密码', 'mode': mode}
+            context = {'errmsg': '请输入完整的登录ID和密码', 'mode': mode, 'beian': config.beian}
             return aiohttp_jinja2.render_template('form.html', request, context)
 
     @asyncio.coroutine
@@ -103,7 +103,8 @@ class FrontEndHandler:
             context = {'scheme': config.scheme,
                        'host': request.host,
                        'token': token,
-                       'starttime': starttime}
+                       'starttime': starttime,
+                       'beian': config.beian}
             return aiohttp_jinja2.render_template('normal.html', request, context)
         else:
             self.clear_session(session)
@@ -122,7 +123,7 @@ class FrontEndHandler:
         starttime = session.get('api_starttime', None)
         world_ip = session.get('world_ip', None)
         if token and starttime and world_ip:
-            return aiohttp_jinja2.render_template('kcv.html', request, context={})
+            return aiohttp_jinja2.render_template('kcv.html', request, context={'beian': config.beian})
         else:
             self.clear_session(session)
             return aiohttp.web.HTTPFound('/')
@@ -143,7 +144,8 @@ class FrontEndHandler:
             context = {'scheme': config.scheme,
                        'host': request.host,
                        'token': token,
-                       'starttime': starttime}
+                       'starttime': starttime,
+                       'beian': config.beian}
             return aiohttp_jinja2.render_template('flash.html', request, context)
         else:
             self.clear_session(session)
@@ -165,7 +167,8 @@ class FrontEndHandler:
             context = {'scheme': config.scheme,
                        'host': request.host,
                        'token': token,
-                       'starttime': starttime}
+                       'starttime': starttime,
+                       'beian': config.beian}
             return aiohttp_jinja2.render_template('poi.html', request, context)
         else:
             self.clear_session(session)
@@ -181,7 +184,7 @@ class FrontEndHandler:
         session = yield from get_session(request)
         osapi_url = session.get('osapi_url', None)
         if osapi_url:
-            context = {'osapi_url': osapi_url}
+            context = {'osapi_url': osapi_url, 'beian': config.beian}
             return aiohttp_jinja2.render_template('connector.html', request, context)
         else:
             self.clear_session(session)

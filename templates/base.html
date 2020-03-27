@@ -34,8 +34,12 @@
   <div id="ooi-footer" class="uk-text-center">
     <hr>
     <address><a href="https://nanahira.momobako.com" target="_blank">Nanahira</a> &copy; 2017-2020</address>
-    <address><a href="http://www.beian.gov.cn/" rel="external nofollow" target="_blank">粤ICP备19057366号-1</a></address>
-    <address><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030502004135" rel="external nofollow" target="_blank">粤公网安备 44030502004135号</a></address>
+{% if beian.number %}
+    <address><a href="http://beian.miit.gov.cn/" rel="external nofollow" target="_blank">{{beian}}</a></address>
+{% endif %}
+{% if beian.gongan and beian.province %}
+    <address><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode={{beian.gongan}}" rel="external nofollow" target="_blank">{{beian.province}}公网安备{{beian.gongan}}号</a></address>
+{% endif %}
   </div>
 </div>
 <div class="statistics">
