@@ -37,7 +37,7 @@ class FrontEndHandler:
             session['mode'] = 1
             mode = 1
 
-        return {'mode': mode}
+        return {'mode': mode, 'beian': config.beian}
 
     @asyncio.coroutine
     def login(self, request):
