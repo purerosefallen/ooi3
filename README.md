@@ -7,7 +7,7 @@ Online Objects Integration (OOI) system based on aiohttp.
 
 # Docker Image
 
-https://hub.docker.com/r/nanahira/taiko-web
+https://hub.docker.com/r/nanahira/ooi3
 
 Nothing to volume and just expose port to 80.
 
@@ -15,3 +15,5 @@ Nothing to volume and just expose port to 80.
 
 * `OOI_SECRET_KEY`: Any 32 characters.
 * `OOI_SCHEME`: Set to `https` for behind proxy.
+* `OOI_BEIAN_NUMBER`: The ICP documenting code of your domain. eg. `粤ICP备19057366号-1`. Needed when setting up OOI in China. You may not set this variable when setting up OOI outside China mainland.
+* `OOI_BEIAN_NUMBER`: Needed when setting up OOI in China. The ICP police documenting code of your domain. eg. `44030502004135` for `粤公网安备44030502004135号`. The provice would be auto detected.
