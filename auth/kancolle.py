@@ -22,7 +22,7 @@ class KancolleAuth:
             'make_request': 'http://osapi.dmm.com/gadgets/makeRequest',
             'get_world': 'http://203.104.209.7/kcsapi/api_world/get_id/%s/1/%d',
             'get_entry': 'http://%s/kcsapi/api_auth_member/dmmlogin/%s/1/%d',
-            'entry': 'http://%s/kcs2/index.php?api_root=/kcsapi&voice_root=/kcs/sound&osapi_root=osapi.dmm.com&version=4.0.0.0&api_token=%s&api_starttime=%d'}
+            'entry': 'http://%s/kcs2/index.php?api_root=/kcsapi&voice_root=/kcs/sound&osapi_root=osapi.dmm.com&version=4.5.3.0&api_token=%s&api_starttime=%d'}
 
     # 各镇守府的IP列表
     world_ip_list = (
